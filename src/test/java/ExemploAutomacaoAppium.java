@@ -19,8 +19,6 @@ public class ExemploAutomacaoAppium {
         options.setPlatformVersion("13.0");
         options.setAutomationName("UIAutomator2");
         options.setDeviceName("emulator-5554");
-        options.setApp("C:\\Users\\Lut\\IdeaProjects\\automacaoMobile\\src\\test\\resources\\ApiDemos-debug.apk");
-        options.setNoReset(true);
         options.setAppPackage("io.appium.android.apis");
         options.setAppActivity(".ApiDemos");
 
