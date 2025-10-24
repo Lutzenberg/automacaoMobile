@@ -4,10 +4,12 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.Map;
 
 public class ExemploAutomacaoAppium {
 
@@ -53,6 +55,16 @@ public class ExemploAutomacaoAppium {
                 + "new UiSelector().text(\"WebView\"));"));
 
 
+    }
+
+    @Test
+    public void dragandDrop() {
+        driver.findElement(AppiumBy.accessibilityId("Views")).click();
+        driver.findElement(AppiumBy.accessibilityId("Drag and Drop")).click();
+
+        RemoteWebElement source = (RemoteWebElement) driver.findElement(AppiumBy.id("io.appium.android.apis:id/drag_dot_1"));
+        RemoteWebElement destination = (RemoteWebElement) driver.findElement(AppiumBy.id("io.appium.android.apis:id/drag_dot_2"));
+        driver.executeScript("gesture: dragAndDrop", Map.of("sourceId", source.getId(), "destinationId", destination.getId()));
     }
 }
 
