@@ -5,6 +5,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.net.MalformedURLException;
@@ -81,6 +82,16 @@ public class ExemploAutomacaoAppium {
 
         Assert.assertTrue(driver.getPageSource().contains("I am some page content"));
         driver.context((String) handles[0]);
+    }
+
+    @Test
+    public void recorder() {
+        WebElement el1 = driver.findElement(AppiumBy.accessibilityId("Views"));
+        el1.click();
+        WebElement el2 = driver.findElement(AppiumBy.accessibilityId("Drag and Drop"));
+        el2.click();
+        WebElement el3 = driver.findElement(AppiumBy.id("io.appium.android.apis:id/drag_dot_1"));
+        el3.click();
     }
 
     @After
