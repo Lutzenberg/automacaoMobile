@@ -2,6 +2,7 @@ package mydemoapp.scenarios;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import mydemoapp.scenarios.page.CarrinhoPage;
 import mydemoapp.scenarios.page.HomePage;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +15,7 @@ public class TesteCompraProduto {
 
     AndroidDriver driver;
     HomePage homePage;
+    CarrinhoPage carrinhoPage;
 
     @Before
     public void before() throws MalformedURLException {
@@ -29,13 +31,16 @@ public class TesteCompraProduto {
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-       homePage = new HomePage(driver);
+        homePage = new HomePage(driver);
+        carrinhoPage = new CarrinhoPage(driver);
     }
 
     @Test
     public void testeComprarProdutoApp() {
         homePage.clicarPorXpath(homePage.produto);
         homePage.clicarPorAccId(homePage.btnAddCarrinho);
+        homePage.clicarPorXpath(homePage.Carinho);
+        carrinhoPage.alterarAquantidadeParaTres();
 
 
     }

@@ -11,6 +11,8 @@ public class HomePage {
 
     public String btnAddCarrinho = "Add To Cart button";
 
+    public String Carinho = "//android.view.ViewGroup[@content-desc='cart badge']/android.widget.ImageView";
+
     public HomePage(AndroidDriver driveScenario) {
         this.driver = driveScenario;
     }
