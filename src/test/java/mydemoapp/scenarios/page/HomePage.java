@@ -3,7 +3,7 @@ package mydemoapp.scenarios.page;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 
-public class HomePage {
+public class HomePage extends ComumPage {
 
     AndroidDriver driver;
 
@@ -14,15 +14,9 @@ public class HomePage {
     public String Carinho = "//android.view.ViewGroup[@content-desc='cart badge']/android.widget.ImageView";
 
     public HomePage(AndroidDriver driveScenario) {
+        super(driveScenario);
         this.driver = driveScenario;
     }
 
-    public void clicarPorXpath(String elemento) {
-        driver.findElement(AppiumBy.xpath(elemento)).click();
-    }
-    public void clicarPorAccId(String elemento) {
-        driver.findElement(AppiumBy.accessibilityId(elemento)).click();
-
-    }
 
 }
