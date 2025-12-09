@@ -2,9 +2,7 @@ package mydemoapp.scenarios;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import mydemoapp.scenarios.page.CarrinhoPage;
-import mydemoapp.scenarios.page.HomePage;
-import mydemoapp.scenarios.page.LoginPage;
+import mydemoapp.scenarios.page.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,6 +16,8 @@ public class TesteCompraProduto {
     HomePage homePage;
     CarrinhoPage carrinhoPage;
     LoginPage loginPage;
+    CheckoutPage checkoutPage;
+
 
     @Before
     public void before() throws MalformedURLException {
@@ -36,6 +36,8 @@ public class TesteCompraProduto {
         homePage = new HomePage(driver);
         carrinhoPage = new CarrinhoPage(driver);
         loginPage = new LoginPage(driver);
+        checkoutPage = new CheckoutPage(driver);
+
     }
 
     @Test
@@ -45,9 +47,22 @@ public class TesteCompraProduto {
         homePage.clicarPorXpath(homePage.Carinho);
         carrinhoPage.alterarAquantidadeParaTres();
         loginPage.clicarPorAccId(loginPage.btnCheckout);
-        loginPage.preencherCampoTextoPorAccId(loginPage.inputIdUserName,"bob@example.com");
-        loginPage.preencherCampoTextoPorAccId(loginPage.inputIdPassWord,"10203040");
+        loginPage.preencherCampoTextoPorAccId(loginPage.inputIdUserName, "bob@example.com");
+        loginPage.preencherCampoTextoPorAccId(loginPage.inputIdPassWord, "10203040");
         loginPage.clicarPorAccId(loginPage.btnIdLogin);
+        checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdFullName, "Jose");
+        checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdAddress1, "Av Roberto, 300");
+        checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdCity, "Niteroi");
+        checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdZipCode, "89750");
+        checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdRegion, "Rio de Janeiro");
+        checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdCountry, "Brasil");
+        checkoutPage.clicarPorAccId(checkoutPage.btnIrParaPagamento);
+        checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdNomeDoCartao, "Jose");
+        checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdNumeDoCartao, "5495 4858 6516 4283");
+        checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdValidaDoCartao, "10/26");
+        checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdNumeDeSegDoCartao, "556");
+        checkoutPage.clicarPorAccId(checkoutPage.btnRevisarPedidoDoCartao);
+
 
     }
 

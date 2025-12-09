@@ -22,7 +22,10 @@ public class ComumPage {
     }
 
     public void preencherCampoTextoPorAccId(String elemento, String valor) {
+        driver.findElement(AppiumBy.accessibilityId(elemento)).clear();
         driver.findElement(AppiumBy.accessibilityId(elemento)).sendKeys(valor);
-
     }
+
+
+
 }
