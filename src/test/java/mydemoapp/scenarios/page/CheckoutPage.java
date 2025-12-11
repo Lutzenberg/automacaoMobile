@@ -1,6 +1,8 @@
 package mydemoapp.scenarios.page;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import org.junit.Assert;
 
 public class CheckoutPage extends ComumPage {
 
@@ -30,9 +32,24 @@ public class CheckoutPage extends ComumPage {
 
     public String btnRevisarPedidoDoCartao = "Review Order button";
 
+    public String idTotalDoItem = "total number";
+
+    public String idNomeProduto = "product label";
+
+    public String btnConfirmarPedido = "Place Order button";
+
 
     public CheckoutPage(AndroidDriver driveScenario) {
         super(driveScenario);
         this.driver = driveScenario;
+    }
+
+    public void validarNoomeProduto(String elemento, String valorEsperado) {
+        String valorAtual = driver.findElement(AppiumBy.accessibilityId(elemento)).getText();
+        Assert.assertEquals(valorEsperado,valorAtual);
+    }
+    public void validarQuantidadeProduto(String elemento, String valorEsperado) {
+        String valorAtual = driver.findElement(AppiumBy.accessibilityId(elemento)).getText();
+        Assert.assertEquals(valorEsperado,valorAtual);
     }
 }

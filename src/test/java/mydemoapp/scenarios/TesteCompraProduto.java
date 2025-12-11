@@ -62,6 +62,9 @@ public class TesteCompraProduto {
         checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdValidaDoCartao, "10/26");
         checkoutPage.preencherCampoTextoPorAccId(checkoutPage.inputIdNumeDeSegDoCartao, "556");
         checkoutPage.clicarPorAccId(checkoutPage.btnRevisarPedidoDoCartao);
+        checkoutPage.validarQuantidadeProduto(checkoutPage.idTotalDoItem,"3 items");
+        checkoutPage.validarNoomeProduto(checkoutPage.idNomeProduto,"Sauce Labs Backpack");
+        checkoutPage.clicarPorAccId(checkoutPage.btnConfirmarPedido);
 
 
     }
